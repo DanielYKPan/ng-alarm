@@ -1,0 +1,19 @@
+.app-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background: linear-gradient(#F6C96F, #E68D52) fixed;
+}
+
+.app-container {
+  position: relative;
+  background: #FFF;
+  width: 300px;
+  height: 500px;
+  border-radius: 6px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
