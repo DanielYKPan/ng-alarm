@@ -9,6 +9,8 @@
 }
 
 .app-container {
+  display: flex;
+  flex-direction: column;
   position: relative;
   background: #FFF;
   width: 300px;
