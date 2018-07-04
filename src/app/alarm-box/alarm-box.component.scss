@@ -1,0 +1,93 @@
+:host {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 1.3rem;
+}
+
+.alarm-box-indicator-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+}
+
+.alarm-box-indicator {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  margin: 20px auto;
+}
+
+.alarm-box-indicator-morning {
+  background: #F2CF68;
+  box-shadow: 0 0 0 2px rgba(242, 207, 104, 0.4), 0 0 0 4px rgba(242, 207, 104, 0.2);
+}
+
+.alarm-box-indicator-afternoon {
+  background: #B0BFCC;
+  box-shadow: 0 0 0 2px rgba(176, 191, 204, 0.4), 0 0 0 4px rgba(176, 191, 204, 0.2);
+}
+
+.alarm-box-indicator-afternoon {
+  background: #B0BFCC;
+  box-shadow: 0 0 0 2px rgba(176, 191, 204, 0.4), 0 0 0 4px rgba(176, 191, 204, 0.2);
+}
+
+.alarm-box-indicator-night {
+  position: relative;
+  background: #AFB5BD;
+  box-shadow: 0 0 0 2px rgba(175, 181, 189, 0.4), 0 0 0 4px rgba(175, 181, 189, 0.2);
+  transform: translateX(5px);
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: -18px;
+    display: block;
+    background: #FFF;
+    width: 25px;
+    height: 20px;
+    border-radius: 100%;
+  }
+}
+
+.alarm-box-column-inform {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.alarm-box-inform-time {
+  font-size: 3rem;
+  font-weight: 100;
+}
+
+.alarm-box-checkbox {
+  margin: 0 .3rem;
+  color: #999;
+
+  &.alarm-box-checkbox-on {
+    color: #000000;
+  }
+}
+
+.alarm-box-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.alarm-box-column-switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  padding: 0 1rem 2rem;
+}

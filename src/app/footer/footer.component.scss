@@ -21,6 +21,10 @@
   transform: translateX(-50%);
   cursor: pointer;
 
+  &:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
   &:before,
   &:after {
     content: '';
