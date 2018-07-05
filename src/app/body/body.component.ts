@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, HostBinding, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit } from '@angular/core';
+import { Alarm } from '../store/alarm-model';
 
 @Component({
     selector: 'app-body',
@@ -7,6 +8,8 @@ import { ChangeDetectionStrategy, Component, HostBinding, OnInit } from '@angula
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BodyComponent implements OnInit {
+
+    @Input() alarms: Alarm[];
 
     @HostBinding('class.app-body')
     get bodyClass(): boolean {

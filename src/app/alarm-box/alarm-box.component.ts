@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, HostBinding, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit } from '@angular/core';
+import { Alarm } from '../store/alarm-model';
 
 let nextUniqueId = 0;
 
@@ -9,6 +10,8 @@ let nextUniqueId = 0;
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AlarmBoxComponent implements OnInit {
+
+    @Input() alarm: Alarm;
 
     @HostBinding('class.app-alarm-box')
     get alarmBoxClass(): boolean {
