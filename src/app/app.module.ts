@@ -9,6 +9,7 @@ import { AlarmBoxComponent } from './alarm-box/alarm-box.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OwlCheckBoxModule, OwlSwitchModule } from 'owl-ng';
 import { FormsModule } from '@angular/forms';
+import { DoubleDigitsPipe } from './alarm-box/double-digits.pipe';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
         BodyComponent,
         FooterComponent,
         HeaderComponent,
-        AlarmBoxComponent
+        AlarmBoxComponent,
+        DoubleDigitsPipe,
     ],
     imports: [
         BrowserModule,
