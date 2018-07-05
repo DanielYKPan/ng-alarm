@@ -1,5 +1,9 @@
 <div class="alarm-box-column alarm-box-indicator-column">
-    <span class="alarm-box-indicator alarm-box-indicator-night"></span>
+    <span class="alarm-box-indicator"
+          [ngClass]="{
+          'alarm-box-indicator-night': !isMorningHour,
+          'alarm-box-indicator-morning': isMorningHour
+          }" ></span>
 </div>
 <div class="alarm-box-column alarm-box-column-inform">
     <span class="alarm-box-inform-time">
@@ -11,6 +15,7 @@
         <owl-check-box [binary]="false"
                        class="alarm-box-checkbox"
                        [ngClass]="{'alarm-box-checkbox-on': chkBox0.checked}"
+                       [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="0"
                        [id]="'sun' + id" #chkBox0="owlCheckBox">
             <owl-check-box-toggle>S</owl-check-box-toggle>
         </owl-check-box>
@@ -19,6 +24,7 @@
          <owl-check-box [binary]="false"
                         class="alarm-box-checkbox"
                         [ngClass]="{'alarm-box-checkbox-on': chkBox1.checked}"
+                        [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="1"
                         [id]="'mon' + id" #chkBox1="owlCheckBox">
             <owl-check-box-toggle>M</owl-check-box-toggle>
         </owl-check-box>
@@ -27,6 +33,7 @@
          <owl-check-box [binary]="false"
                         class="alarm-box-checkbox"
                         [ngClass]="{'alarm-box-checkbox-on': chkBox2.checked}"
+                        [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="2"
                         [id]="'tue' + id" #chkBox2="owlCheckBox">
             <owl-check-box-toggle>T</owl-check-box-toggle>
         </owl-check-box>
@@ -35,6 +42,7 @@
          <owl-check-box [binary]="false"
                         class="alarm-box-checkbox"
                         [ngClass]="{'alarm-box-checkbox-on': chkBox3.checked}"
+                        [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="3"
                         [id]="'wed' + id" #chkBox3="owlCheckBox">
             <owl-check-box-toggle>W</owl-check-box-toggle>
         </owl-check-box>
@@ -43,6 +51,7 @@
          <owl-check-box [binary]="false"
                         class="alarm-box-checkbox"
                         [ngClass]="{'alarm-box-checkbox-on': chkBox4.checked}"
+                        [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="4"
                         [id]="'thu' + id" #chkBox4="owlCheckBox">
             <owl-check-box-toggle>T</owl-check-box-toggle>
         </owl-check-box>
@@ -51,6 +60,7 @@
          <owl-check-box [binary]="false"
                         class="alarm-box-checkbox"
                         [ngClass]="{'alarm-box-checkbox-on': chkBox5.checked}"
+                        [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="5"
                         [id]="'fri' + id" #chkBox5="owlCheckBox">
             <owl-check-box-toggle>F</owl-check-box-toggle>
         </owl-check-box>
@@ -59,6 +69,7 @@
          <owl-check-box [binary]="false"
                         class="alarm-box-checkbox"
                         [ngClass]="{'alarm-box-checkbox-on': chkBox6.checked}"
+                        [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="6"
                         [id]="'sat' + id" #chkBox6="owlCheckBox">
             <owl-check-box-toggle>S</owl-check-box-toggle>
         </owl-check-box>
@@ -66,5 +77,6 @@
 </div>
 
 <div class="alarm-box-column alarm-box-column-switch">
-    <owl-switch></owl-switch>
+    <owl-switch [ngModel]="alarm.isActive"
+                (ngModelChange)="handleStatusChange($event)" ></owl-switch>
 </div>

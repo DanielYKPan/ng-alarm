@@ -18,6 +18,10 @@ export class AlarmBoxComponent implements OnInit {
         return true;
     }
 
+    get isMorningHour(): boolean {
+        return this.alarm.hour >= 6 && this.alarm.hour < 18;
+    }
+
     public id = ++nextUniqueId;
 
     constructor() {
@@ -26,4 +30,13 @@ export class AlarmBoxComponent implements OnInit {
     ngOnInit() {
     }
 
+    public handleDaysChange( days: number[] ) {
+        console.log(days);
+        console.log(this.alarm.days);
+    }
+
+    handleStatusChange( isActive: boolean ) {
+        console.log(isActive);
+        console.log(this.alarm.isActive);
+    }
 }
