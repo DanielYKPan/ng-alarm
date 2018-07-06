@@ -1,7 +1,7 @@
 <div class="app-main">
     <div class="app-container">
         <app-header></app-header>
-        <app-body></app-body>
-        <app-footer></app-footer>
+        <app-body [isConfigSettings]="isConfigSettings"></app-body>
+        <app-footer (change)="handleFooterBtnClick($event)"></app-footer>
     </div>
 </div>

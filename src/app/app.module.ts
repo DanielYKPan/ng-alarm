@@ -11,6 +11,7 @@ import { OwlCheckBoxModule, OwlSwitchModule } from 'owl-ng';
 import { FormsModule } from '@angular/forms';
 import { DoubleDigitsPipe } from './alarm-box/double-digits.pipe';
 import { AlarmListComponent } from './alarm-list/alarm-list.component';
+import { AlarmSettingsComponent } from './alarm-settings/alarm-settings.component';
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import { AlarmListComponent } from './alarm-list/alarm-list.component';
         AlarmBoxComponent,
         DoubleDigitsPipe,
         AlarmListComponent,
+        AlarmSettingsComponent,
     ],
     imports: [
         BrowserModule,

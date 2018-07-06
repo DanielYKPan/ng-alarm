@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Alarm } from './store/alarm-model';
 
 @Component({
     selector: 'app-root',
@@ -7,4 +6,13 @@ import { Alarm } from './store/alarm-model';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+    private _isConfigSettings = false;
+    get isConfigSettings(): boolean {
+        return this._isConfigSettings;
+    }
+
+    public handleFooterBtnClick( isConfigSettings: boolean ) {
+        this._isConfigSettings = isConfigSettings;
+    }
 }

@@ -9,6 +9,8 @@ import { Alarm } from '../store/alarm-model';
 })
 export class BodyComponent implements OnInit {
 
+    @Input() isConfigSettings: boolean;
+
     public alarms: Alarm[] = [
         {
             id: '0',

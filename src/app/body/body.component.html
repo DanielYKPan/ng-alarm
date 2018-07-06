@@ -1,1 +1,5 @@
-<app-alarm-list [alarms]="alarms"></app-alarm-list>
+<app-alarm-settings *ngIf="isConfigSettings;else alarmList"></app-alarm-settings>
+
+<ng-template #alarmList>
+    <app-alarm-list [alarms]="alarms"></app-alarm-list>
+</ng-template>
