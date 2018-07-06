@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit } from '@angular/core';
 import { Alarm } from '../store/alarm-model';
 
 @Component({
@@ -10,6 +10,11 @@ import { Alarm } from '../store/alarm-model';
 export class AlarmListComponent implements OnInit {
 
     @Input() alarms: Alarm[];
+
+    @HostBinding('class.alarm-list-wrapper')
+    get alarmListWrapperClass(): boolean {
+        return true;
+    }
 
     constructor() {
     }
