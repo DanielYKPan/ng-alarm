@@ -7,35 +7,4 @@ import { Alarm } from './store/alarm-model';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
-    public alarms: Alarm[] = [
-        {
-            id: '0',
-            hour: 0,
-            minute: 30,
-            isActive: true,
-            days: [0, 2, 4, 6]
-        },
-        {
-            id: '1',
-            hour: 10,
-            minute: 20,
-            isActive: true,
-            days: [0, 1, 2, 4]
-        },
-        {
-            id: '2',
-            hour: 18,
-            minute: 5,
-            isActive: true,
-            days: [0, 1, 2, 3, 4, 5, 6]
-        },
-        {
-            id: '3',
-            hour: 23,
-            minute: 42,
-            isActive: true,
-            days: [0, 2, 4, 6]
-        },
-    ];
 }
