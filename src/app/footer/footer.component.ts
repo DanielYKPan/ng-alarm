@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
 
 @Component({
     selector: 'app-footer',
@@ -8,9 +8,9 @@ import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, OnInit, 
 })
 export class FooterComponent implements OnInit {
 
-    public isOn: boolean = false;
+    @Input() isConfigSettings: boolean;
 
-    @Output() change = new EventEmitter<boolean>();
+    @Output() isConfigSettingsChange = new EventEmitter<boolean>();
 
     @HostBinding('class.app-footer')
     get footerClass(): boolean {
@@ -24,8 +24,8 @@ export class FooterComponent implements OnInit {
     }
 
     public handleBtnClick( event: any ) {
-        this.isOn = !this.isOn;
-        this.change.emit(this.isOn);
+        this.isConfigSettings = !this.isConfigSettings;
+        this.isConfigSettingsChange.emit(this.isConfigSettings);
         event.preventDefault();
     }
 }

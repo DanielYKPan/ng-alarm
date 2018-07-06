@@ -7,12 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-    private _isConfigSettings = false;
-    get isConfigSettings(): boolean {
-        return this._isConfigSettings;
-    }
-
-    public handleFooterBtnClick( isConfigSettings: boolean ) {
-        this._isConfigSettings = isConfigSettings;
-    }
+    public isConfigSettings = false;
 }

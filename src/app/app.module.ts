@@ -9,7 +9,7 @@ import { AlarmBoxComponent } from './alarm-box/alarm-box.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OwlCheckBoxModule, OwlSwitchModule } from 'owl-ng';
 import { FormsModule } from '@angular/forms';
-import { DoubleDigitsPipe } from './alarm-box/double-digits.pipe';
+import { DoubleDigitsPipe } from './double-digits/double-digits.pipe';
 import { AlarmListComponent } from './alarm-list/alarm-list.component';
 import { AlarmSettingsComponent } from './alarm-settings/alarm-settings.component';
 

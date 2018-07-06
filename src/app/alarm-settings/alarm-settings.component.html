@@ -1,2 +1,97 @@
 <div class="alarm-settings-inner">
+    <div class="frequency-block">
+        <div class="title">WHEN?</div>
+        <div class="days">
+            <!-- Sunday -->
+            <owl-check-box [binary]="false"
+                           class="settings-checkbox"
+                           [ngClass]="{'checkbox-on': chkBox0.checked}"
+                           [value]="0" #chkBox0="owlCheckBox">
+                <owl-check-box-toggle>Sun</owl-check-box-toggle>
+            </owl-check-box>
+
+            <!-- Monday -->
+            <owl-check-box [binary]="false"
+                           class="settings-checkbox"
+                           [ngClass]="{'checkbox-on': chkBox1.checked}"
+                           [value]="1" #chkBox1="owlCheckBox">
+                <owl-check-box-toggle>Mon</owl-check-box-toggle>
+            </owl-check-box>
+
+            <!-- Tuesday -->
+            <owl-check-box [binary]="false"
+                           class="settings-checkbox"
+                           [ngClass]="{'checkbox-on': chkBox2.checked}"
+                           [value]="2" #chkBox2="owlCheckBox">
+                <owl-check-box-toggle>Tue</owl-check-box-toggle>
+            </owl-check-box>
+
+            <!-- Wednesday -->
+            <owl-check-box [binary]="false"
+                           class="settings-checkbox"
+                           [ngClass]="{'checkbox-on': chkBox3.checked}"
+                           [value]="3" #chkBox3="owlCheckBox">
+                <owl-check-box-toggle>Wed</owl-check-box-toggle>
+            </owl-check-box>
+
+            <!-- Thursday -->
+            <owl-check-box [binary]="false"
+                           class="settings-checkbox"
+                           [ngClass]="{'checkbox-on': chkBox4.checked}"
+                           [value]="4" #chkBox4="owlCheckBox">
+                <owl-check-box-toggle>Thu</owl-check-box-toggle>
+            </owl-check-box>
+
+            <!-- Friday -->
+            <owl-check-box [binary]="false"
+                           class="settings-checkbox"
+                           [ngClass]="{'checkbox-on': chkBox5.checked}"
+                           [value]="5" #chkBox5="owlCheckBox">
+                <owl-check-box-toggle>Fri</owl-check-box-toggle>
+            </owl-check-box>
+
+            <!-- Saturday -->
+            <owl-check-box [binary]="false"
+                           class="settings-checkbox"
+                           [ngClass]="{'checkbox-on': chkBox6.checked}"
+                           [value]="6" #chkBox6="owlCheckBox">
+                <owl-check-box-toggle>Sat</owl-check-box-toggle>
+            </owl-check-box>
+        </div>
+    </div>
+
+    <div class="time-block">
+        <div class="title">WHAT TIME?</div>
+        <div class="time">
+            <div class="hours">
+                <button type="button"
+                        class="time-control-btn"
+                        (click)="handleHoursUp($event)">
+                    <i class="fas fa-caret-up"></i>
+                </button>
+                <span class="value">{{hours | doubleDigits}}</span>
+                <button type="button"
+                        class="time-control-btn"
+                        (click)="handleHoursDown($event)">
+                    <i class="fas fa-caret-down"></i>
+                </button>
+            </div>
+            <div class="dividers">:</div>
+            <div class="minutes">
+                <button type="button"
+                        class="time-control-btn"
+                        (click)="handleMinutesUp($event)">
+                    <i class="fas fa-caret-up"></i>
+                </button>
+                <span class="value">{{minutes | doubleDigits}}</span>
+                <button type="button"
+                        class="time-control-btn"
+                        (click)="handleMinutesDown($event)">
+                    <i class="fas fa-caret-down"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="saving-btn" (click)="handleSavingBtnClick($event)">SAVE</button>
 </div>

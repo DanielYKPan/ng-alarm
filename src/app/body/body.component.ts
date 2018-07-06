@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
 import { Alarm } from '../store/alarm-model';
 import { bodyAnimations } from './body.animations';
 
@@ -14,6 +14,8 @@ import { bodyAnimations } from './body.animations';
 export class BodyComponent implements OnInit {
 
     @Input() isConfigSettings: boolean;
+
+    @Output() isConfigSettingsChange = new EventEmitter<boolean>();
 
     public alarms: Alarm[] = [
         {
@@ -62,4 +64,8 @@ export class BodyComponent implements OnInit {
     ngOnInit() {
     }
 
+    handleAlarmSettingsSave( event: any ) {
+        this.isConfigSettings = false;
+        this.isConfigSettingsChange.emit(false);
+    }
 }

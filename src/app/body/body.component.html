@@ -1,4 +1,5 @@
-<app-alarm-settings *ngIf="isConfigSettings;else alarmList"></app-alarm-settings>
+<app-alarm-settings *ngIf="isConfigSettings;else alarmList"
+                    (save)="handleAlarmSettingsSave($event)"></app-alarm-settings>
 
 <ng-template #alarmList>
     <app-alarm-list [alarms]="alarms"></app-alarm-list>

@@ -14,7 +14,7 @@
         <!-- Sunday -->
         <owl-check-box [binary]="false"
                        class="alarm-box-checkbox"
-                       [ngClass]="{'alarm-box-checkbox-on': chkBox0.checked}"
+                       [ngClass]="{'checkbox-on': chkBox0.checked}"
                        [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="0"
                        [id]="'sun' + id" #chkBox0="owlCheckBox">
             <owl-check-box-toggle>S</owl-check-box-toggle>
@@ -23,7 +23,7 @@
         <!-- Monday -->
          <owl-check-box [binary]="false"
                         class="alarm-box-checkbox"
-                        [ngClass]="{'alarm-box-checkbox-on': chkBox1.checked}"
+                        [ngClass]="{'checkbox-on': chkBox1.checked}"
                         [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="1"
                         [id]="'mon' + id" #chkBox1="owlCheckBox">
             <owl-check-box-toggle>M</owl-check-box-toggle>
@@ -32,7 +32,7 @@
         <!-- Tuesday -->
          <owl-check-box [binary]="false"
                         class="alarm-box-checkbox"
-                        [ngClass]="{'alarm-box-checkbox-on': chkBox2.checked}"
+                        [ngClass]="{'checkbox-on': chkBox2.checked}"
                         [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="2"
                         [id]="'tue' + id" #chkBox2="owlCheckBox">
             <owl-check-box-toggle>T</owl-check-box-toggle>
@@ -41,7 +41,7 @@
         <!-- Wednesday -->
          <owl-check-box [binary]="false"
                         class="alarm-box-checkbox"
-                        [ngClass]="{'alarm-box-checkbox-on': chkBox3.checked}"
+                        [ngClass]="{'checkbox-on': chkBox3.checked}"
                         [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="3"
                         [id]="'wed' + id" #chkBox3="owlCheckBox">
             <owl-check-box-toggle>W</owl-check-box-toggle>
@@ -50,7 +50,7 @@
         <!-- Thursday -->
          <owl-check-box [binary]="false"
                         class="alarm-box-checkbox"
-                        [ngClass]="{'alarm-box-checkbox-on': chkBox4.checked}"
+                        [ngClass]="{'checkbox-on': chkBox4.checked}"
                         [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="4"
                         [id]="'thu' + id" #chkBox4="owlCheckBox">
             <owl-check-box-toggle>T</owl-check-box-toggle>
@@ -59,7 +59,7 @@
         <!-- Friday -->
          <owl-check-box [binary]="false"
                         class="alarm-box-checkbox"
-                        [ngClass]="{'alarm-box-checkbox-on': chkBox5.checked}"
+                        [ngClass]="{'checkbox-on': chkBox5.checked}"
                         [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="5"
                         [id]="'fri' + id" #chkBox5="owlCheckBox">
             <owl-check-box-toggle>F</owl-check-box-toggle>
@@ -68,7 +68,7 @@
         <!-- Saturday -->
          <owl-check-box [binary]="false"
                         class="alarm-box-checkbox"
-                        [ngClass]="{'alarm-box-checkbox-on': chkBox6.checked}"
+                        [ngClass]="{'checkbox-on': chkBox6.checked}"
                         [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="6"
                         [id]="'sat' + id" #chkBox6="owlCheckBox">
             <owl-check-box-toggle>S</owl-check-box-toggle>

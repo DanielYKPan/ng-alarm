@@ -3,8 +3,19 @@
 @import "~owl-ng/assets/style/theme.min.css";
 @import "sass/main";
 
-.alarm-box-checkbox {
+.alarm-box-checkbox,
+.settings-checkbox {
   .owl-chkbox-label-content {
     margin-left: 0;
+  }
+}
+
+.alarm-box-checkbox,
+.settings-checkbox {
+  padding: 0 .3rem;
+  color: #999;
+
+  &.checkbox-on {
+    color: #000000;
   }
 }
