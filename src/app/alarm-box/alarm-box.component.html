@@ -13,64 +13,64 @@
 
         <!-- Sunday -->
         <owl-check-box [binary]="false"
-                       class="alarm-box-checkbox"
+                       class="alarm-box-checkbox sun"
                        [ngClass]="{'checkbox-on': chkBox0.checked}"
-                       [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="0"
-                       [id]="'sun' + id" #chkBox0="owlCheckBox">
+                       [ngModel]="alarm.days" [value]="0"
+                       #chkBox0="owlCheckBox">
             <owl-check-box-toggle>S</owl-check-box-toggle>
         </owl-check-box>
 
         <!-- Monday -->
          <owl-check-box [binary]="false"
-                        class="alarm-box-checkbox"
+                        class="alarm-box-checkbox mon"
                         [ngClass]="{'checkbox-on': chkBox1.checked}"
-                        [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="1"
-                        [id]="'mon' + id" #chkBox1="owlCheckBox">
+                        [ngModel]="alarm.days" [value]="1"
+                        #chkBox1="owlCheckBox">
             <owl-check-box-toggle>M</owl-check-box-toggle>
         </owl-check-box>
 
         <!-- Tuesday -->
          <owl-check-box [binary]="false"
-                        class="alarm-box-checkbox"
+                        class="alarm-box-checkbox tue"
                         [ngClass]="{'checkbox-on': chkBox2.checked}"
-                        [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="2"
-                        [id]="'tue' + id" #chkBox2="owlCheckBox">
+                        [ngModel]="alarm.days" [value]="2"
+                        #chkBox2="owlCheckBox">
             <owl-check-box-toggle>T</owl-check-box-toggle>
         </owl-check-box>
 
         <!-- Wednesday -->
          <owl-check-box [binary]="false"
-                        class="alarm-box-checkbox"
+                        class="alarm-box-checkbox wed"
                         [ngClass]="{'checkbox-on': chkBox3.checked}"
-                        [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="3"
-                        [id]="'wed' + id" #chkBox3="owlCheckBox">
+                        [ngModel]="alarm.days" [value]="3"
+                        #chkBox3="owlCheckBox">
             <owl-check-box-toggle>W</owl-check-box-toggle>
         </owl-check-box>
 
         <!-- Thursday -->
          <owl-check-box [binary]="false"
-                        class="alarm-box-checkbox"
+                        class="alarm-box-checkbox thu"
                         [ngClass]="{'checkbox-on': chkBox4.checked}"
-                        [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="4"
-                        [id]="'thu' + id" #chkBox4="owlCheckBox">
+                        [ngModel]="alarm.days" [value]="4"
+                        #chkBox4="owlCheckBox">
             <owl-check-box-toggle>T</owl-check-box-toggle>
         </owl-check-box>
 
         <!-- Friday -->
          <owl-check-box [binary]="false"
-                        class="alarm-box-checkbox"
+                        class="alarm-box-checkbox fri"
                         [ngClass]="{'checkbox-on': chkBox5.checked}"
-                        [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="5"
-                        [id]="'fri' + id" #chkBox5="owlCheckBox">
+                        [ngModel]="alarm.days" [value]="5"
+                        #chkBox5="owlCheckBox">
             <owl-check-box-toggle>F</owl-check-box-toggle>
         </owl-check-box>
 
         <!-- Saturday -->
          <owl-check-box [binary]="false"
-                        class="alarm-box-checkbox"
+                        class="alarm-box-checkbox sat"
                         [ngClass]="{'checkbox-on': chkBox6.checked}"
-                        [ngModel]="alarm.days" (ngModelChange)="handleDaysChange($event)" [value]="6"
-                        [id]="'sat' + id" #chkBox6="owlCheckBox">
+                        [ngModel]="alarm.days" [value]="6"
+                        #chkBox6="owlCheckBox" readonly>
             <owl-check-box-toggle>S</owl-check-box-toggle>
         </owl-check-box>
     </span>
