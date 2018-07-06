@@ -1,6 +1,6 @@
 <div class="app-main">
     <div class="app-container">
-        <app-header></app-header>
+        <app-header [clock]="clock$ | async"></app-header>
         <app-body [(isConfigSettings)]="isConfigSettings"></app-body>
         <app-footer [(isConfigSettings)]="isConfigSettings"></app-footer>
     </div>

@@ -4,8 +4,16 @@
   align-items: center;
   height: 3rem;
   width: 100%;
+  position: relative;
 
   h3 {
     margin: 0;
+  }
+
+  .clock-time {
+    position: absolute;
+    font-size: .9rem;
+    right: 1rem;
+    color: rgba(96, 96, 96, .7);
   }
 }
