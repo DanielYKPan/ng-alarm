@@ -6,7 +6,7 @@
 }
 
 .alarm-settings-inner {
-  width: 85%;
+  width: 90%;
   height: 100%;
 
   .title {
@@ -101,5 +101,26 @@
   &:hover {
     color: #4c6ea5;
     background-color: #FFFFFF;
+  }
+}
+
+.settings-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-sizing: border-box;
+  font-size: .9rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  color: #FFFFFF;
+  user-select: none;
+
+  &.sun, &.sat {
+    color: rgba(255, 28, 55, .8);
+  }
+
+  &.checkbox-on {
+    background-color: rgba(0, 0, 0, 0.3);
   }
 }

@@ -84,15 +84,17 @@
 }
 
 .alarm-box-checkbox {
-  color: rgba(96, 96, 96, .4);
+  padding: 0 .3rem;
+  color: rgba(96, 96, 96, .3);
   user-select: none;
+  cursor: default;
 
   &.checkbox-on {
     color: rgb(84, 84, 84);
   }
 
   &.sun, &.sat {
-    color: rgba(255, 28, 55, .4);
+    color: rgba(255, 28, 55, .3);
 
     &.checkbox-on {
       color: rgba(255, 28, 55, 1);

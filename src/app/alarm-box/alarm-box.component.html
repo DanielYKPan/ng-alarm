@@ -15,7 +15,7 @@
         <owl-check-box [binary]="false"
                        class="alarm-box-checkbox sun"
                        [ngClass]="{'checkbox-on': chkBox0.checked}"
-                       [ngModel]="alarm.days" [value]="0"
+                       [ngModel]="alarm.days" [readonly]="true" [value]="0"
                        #chkBox0="owlCheckBox">
             <owl-check-box-toggle>S</owl-check-box-toggle>
         </owl-check-box>
@@ -24,7 +24,7 @@
          <owl-check-box [binary]="false"
                         class="alarm-box-checkbox mon"
                         [ngClass]="{'checkbox-on': chkBox1.checked}"
-                        [ngModel]="alarm.days" [value]="1"
+                        [ngModel]="alarm.days" [readonly]="true" [value]="1"
                         #chkBox1="owlCheckBox">
             <owl-check-box-toggle>M</owl-check-box-toggle>
         </owl-check-box>
@@ -33,7 +33,7 @@
          <owl-check-box [binary]="false"
                         class="alarm-box-checkbox tue"
                         [ngClass]="{'checkbox-on': chkBox2.checked}"
-                        [ngModel]="alarm.days" [value]="2"
+                        [ngModel]="alarm.days" [readonly]="true" [value]="2"
                         #chkBox2="owlCheckBox">
             <owl-check-box-toggle>T</owl-check-box-toggle>
         </owl-check-box>
@@ -42,7 +42,7 @@
          <owl-check-box [binary]="false"
                         class="alarm-box-checkbox wed"
                         [ngClass]="{'checkbox-on': chkBox3.checked}"
-                        [ngModel]="alarm.days" [value]="3"
+                        [ngModel]="alarm.days" [readonly]="true" [value]="3"
                         #chkBox3="owlCheckBox">
             <owl-check-box-toggle>W</owl-check-box-toggle>
         </owl-check-box>
@@ -51,7 +51,7 @@
          <owl-check-box [binary]="false"
                         class="alarm-box-checkbox thu"
                         [ngClass]="{'checkbox-on': chkBox4.checked}"
-                        [ngModel]="alarm.days" [value]="4"
+                        [ngModel]="alarm.days" [readonly]="true" [value]="4"
                         #chkBox4="owlCheckBox">
             <owl-check-box-toggle>T</owl-check-box-toggle>
         </owl-check-box>
@@ -60,7 +60,7 @@
          <owl-check-box [binary]="false"
                         class="alarm-box-checkbox fri"
                         [ngClass]="{'checkbox-on': chkBox5.checked}"
-                        [ngModel]="alarm.days" [value]="5"
+                        [ngModel]="alarm.days" [readonly]="true" [value]="5"
                         #chkBox5="owlCheckBox">
             <owl-check-box-toggle>F</owl-check-box-toggle>
         </owl-check-box>
@@ -69,8 +69,8 @@
          <owl-check-box [binary]="false"
                         class="alarm-box-checkbox sat"
                         [ngClass]="{'checkbox-on': chkBox6.checked}"
-                        [ngModel]="alarm.days" [value]="6"
-                        #chkBox6="owlCheckBox" readonly>
+                        [ngModel]="alarm.days" [readonly]="true" [value]="6"
+                        #chkBox6="owlCheckBox">
             <owl-check-box-toggle>S</owl-check-box-toggle>
         </owl-check-box>
     </span>
