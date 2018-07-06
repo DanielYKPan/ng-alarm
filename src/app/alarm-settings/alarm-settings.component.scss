@@ -1,5 +1,13 @@
 :host {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
+}
+
+.alarm-settings-inner {
+  width: 85%;
+  height: 85%;
+  background-color: #E68D52;
 }

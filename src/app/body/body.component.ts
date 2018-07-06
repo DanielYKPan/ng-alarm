@@ -1,11 +1,15 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit } from '@angular/core';
 import { Alarm } from '../store/alarm-model';
+import { bodyAnimations } from './body.animations';
 
 @Component({
     selector: 'app-body',
     templateUrl: './body.component.html',
     styleUrls: ['./body.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    animations: [
+        bodyAnimations.transformBody
+    ],
 })
 export class BodyComponent implements OnInit {
 
@@ -45,6 +49,11 @@ export class BodyComponent implements OnInit {
     @HostBinding('class.app-body')
     get bodyClass(): boolean {
         return true;
+    }
+
+    @HostBinding('@transformBody')
+    get handleTransformBodyAnimations(): string {
+        return this.isConfigSettings ? 'settings' : 'list';
     }
 
     constructor() {
