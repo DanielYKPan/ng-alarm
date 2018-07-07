@@ -79,7 +79,12 @@
   color: inherit;
   cursor: pointer;
 
-  &:hover {
+  &:disabled {
+    opacity: .4;
+    cursor: default;
+  }
+
+  &:not([disabled]):hover {
     opacity: .6;
   }
 }

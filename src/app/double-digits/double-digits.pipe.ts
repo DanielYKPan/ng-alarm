@@ -9,7 +9,7 @@ export class DoubleDigitsPipe implements PipeTransform {
         let val = value.toString();
 
         while (val.length < args) {
-            val += '0';
+            val = '0' + val;
         }
 
         return val;

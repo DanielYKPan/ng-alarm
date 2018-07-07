@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
 import { Alarm } from '../store/alarm-model';
 import { bodyAnimations } from './body.animations';
+import * as fromRoot from '../store';
+import * as fromAlarmActions from '../store/alarm-actions';
+import { Store } from '@ngrx/store';
 
 @Component({
     selector: 'app-body',
@@ -60,13 +63,19 @@ export class BodyComponent implements OnInit {
         return this.isConfigSettings ? 'settings' : 'list';
     }
 
-    constructor() {
+    constructor( private store: Store<fromRoot.State> ) {
     }
 
     ngOnInit() {
     }
 
-    handleAlarmSettingsSave( event: any ) {
+    handleAlarmSettingsSave( newAlarm: Alarm ): void {
+        this.store.dispatch(new fromAlarmActions.AddAlarm(newAlarm));
+        this.isConfigSettings = false;
+        this.isConfigSettingsChange.emit(false);
+    }
+
+    handleAlarmSettingsUpdate( alarm: Alarm ): void {
         this.isConfigSettings = false;
         this.isConfigSettingsChange.emit(false);
     }
