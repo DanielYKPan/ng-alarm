@@ -20,10 +20,13 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
+    "@ngrx/db": "^2.1.0",
+    "@ngrx/effects": "^6.0.1",
     "@ngrx/store": "^6.0.1",
     "core-js": "^2.5.4",
     "owl-ng": "^1.0.0-beta.15",
     "rxjs": "^6.0.0",
+    "rxjs-compat": "^6.2.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

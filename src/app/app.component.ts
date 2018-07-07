@@ -3,6 +3,7 @@ import { ClockService } from './clock.service';
 import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import * as fromRoot from './store';
+import * as fromAlarmActions from './store/alarm-actions';
 import { Alarm } from './store/alarm-model';
 
 @Component({
@@ -22,11 +23,12 @@ export class AppComponent implements OnInit {
 
     constructor( private clockService: ClockService,
                  private store: Store<fromRoot.State> ) {
+        this.alarms$ = this.store.pipe(select(fromRoot.getAlarms));
     }
 
     public ngOnInit(): void {
         this.clockService.runClock();
 
-        this.alarms$ = this.store.pipe(select(fromRoot.getAlarms));
+        this.store.dispatch(new fromAlarmActions.Load());
     }
 }

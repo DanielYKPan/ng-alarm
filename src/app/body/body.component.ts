@@ -98,7 +98,11 @@ export class BodyComponent implements OnInit {
     }
 
     handleAlarmDelete( id: string ) {
-        this.store.dispatch(new fromAlarmActions.DeleteAlarm(id));
+        if (!this.alarmOnConfig || this.alarmOnConfig.id !== id) {
+            return;
+        }
+
+        this.store.dispatch(new fromAlarmActions.DeleteAlarm(this.alarmOnConfig));
         this.alarmOnConfig = null;
         this.isConfigSettings = false;
         this.isConfigSettingsChange.emit(false);

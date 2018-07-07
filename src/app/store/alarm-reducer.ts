@@ -16,12 +16,23 @@ export function reducer( state = initialState, action: AlarmActions ): State {
     let updatedAlarms;
 
     switch (action.type) {
-        case AlarmActionTypes.AddAlarm:
+        case AlarmActionTypes.LoadSuccess:
+            return {
+                alarms: [...action.payload]
+            };
+
+        case AlarmActionTypes.AddAlarmSuccess:
+        case AlarmActionTypes.DeleteAlarmFail:
+        case AlarmActionTypes.UpdateAlarmFail:
+            if (state.alarms.find(( alarm ) => alarm.id === action.payload.id)) {
+                return state;
+            }
+
             return {
                 alarms: [action.payload, ...state.alarms]
             };
 
-        case AlarmActionTypes.UpdateAlarm:
+        case AlarmActionTypes.UpdateAlarmSuccess:
             updatedAlarms = state.alarms.map(( alarm: Alarm ) => {
                 return alarm.id === action.payload.id ?
                     action.payload : alarm;
@@ -31,8 +42,9 @@ export function reducer( state = initialState, action: AlarmActions ): State {
                 alarms: updatedAlarms
             };
 
-        case AlarmActionTypes.DeleteAlarm:
-            updatedAlarms = state.alarms.filter(( alarm: Alarm ) => alarm.id !== action.payload);
+        case AlarmActionTypes.DeleteAlarmSuccess:
+        case AlarmActionTypes.AddAlarmFail:
+            updatedAlarms = state.alarms.filter(( alarm: Alarm ) => alarm.id !== action.payload.id);
 
             return {
                 alarms: updatedAlarms

@@ -13,7 +13,11 @@ import { DoubleDigitsPipe } from './double-digits/double-digits.pipe';
 import { AlarmListComponent } from './alarm-list/alarm-list.component';
 import { AlarmSettingsComponent } from './alarm-settings/alarm-settings.component';
 import { StoreModule } from '@ngrx/store';
+import { DBModule } from '@ngrx/db';
+import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './store';
+import { schema } from './db';
+import { AlarmEffects } from './store/alarm-effects';
 
 @NgModule({
     declarations: [
@@ -33,6 +37,21 @@ import { reducers } from './store';
 
         // NG Store
         StoreModule.forRoot(reducers),
+
+        /**
+         * `provideDB` sets up @ngrx/db with the provided schema and makes the Database
+         * service available.
+         */
+        DBModule.provideDB(schema),
+
+        /**
+         * EffectsModule.forRoot() is imported once in the root module and
+         * sets up the effects class to be initialized immediately when the
+         * application starts.
+         *
+         * See: https://github.com/ngrx/platform/blob/master/docs/effects/api.md#forroot
+         */
+        EffectsModule.forRoot([AlarmEffects]),
 
         OwlSwitchModule,
         OwlCheckBoxModule,
