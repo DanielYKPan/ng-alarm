@@ -1,1 +1,3 @@
-<app-alarm-box *ngFor="let alarm of alarms" [alarm]="alarm"></app-alarm-box>
+<app-alarm-box *ngFor="let alarm of alarms" [alarm]="alarm"
+               (click)="handleAlarmClick(alarm)"
+               (changeStatus)="handleAlarmStatusChange($event, alarm)"></app-alarm-box>

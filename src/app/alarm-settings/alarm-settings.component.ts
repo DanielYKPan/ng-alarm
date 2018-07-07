@@ -1,5 +1,4 @@
 import { AfterContentInit, ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
-import { Alarm } from '../store/alarm-model';
 
 @Component({
     selector: 'app-alarm-settings',
@@ -9,11 +8,19 @@ import { Alarm } from '../store/alarm-model';
 })
 export class AlarmSettingsComponent implements OnInit, AfterContentInit {
 
-    @Input() public alarm: Alarm;
+    @Input() alarmId: string;
 
-    @Output() public save = new EventEmitter<Alarm>();
+    @Input() alarmHour: number;
 
-    @Output() public update = new EventEmitter<Alarm>();
+    @Input() alarmMinute: number;
+
+    @Input() alarmDays: number[];
+
+    @Output() public save = new EventEmitter<{ hour: number, minute: number, days: number[] }>();
+
+    @Output() public update = new EventEmitter<{ hour: number, minute: number, days: number[] }>();
+
+    @Output() public delete = new EventEmitter<string>();
 
     @HostBinding('class.alarm-settings-wrapper')
     get alarmSettingWrapperClass(): boolean {
@@ -62,10 +69,9 @@ export class AlarmSettingsComponent implements OnInit, AfterContentInit {
     }
 
     public ngAfterContentInit(): void {
-        this._hour = this.alarm ? this.alarm.hour : 0;
-        this._minute = this.alarm ? this.alarm.minute : 0;
-        this._days = this.alarm && this.alarm.days.length > 0 ?
-            [...this.alarm.days] : [0, 1, 2, 3, 4, 5, 6];
+        this._hour = this.alarmHour || 0;
+        this._minute = this.alarmMinute || 0;
+        this._days = this.alarmDays || [0, 1, 2, 3, 4, 5, 6];
     }
 
     public handleHoursUp( event: any ) {
@@ -93,7 +99,6 @@ export class AlarmSettingsComponent implements OnInit, AfterContentInit {
     }
 
     handleMinutesDown( event: any ) {
-
         if (this.canDecreaseMinute) {
             this._minute -= 1;
         }
@@ -102,20 +107,16 @@ export class AlarmSettingsComponent implements OnInit, AfterContentInit {
     }
 
     handleSavingBtnClick( event: any ) {
-        if (this.alarm) {
-            this.alarm.hour = this._hour;
-            this.alarm.minute = this._minute;
-            this.alarm.days = this._days;
-            this.alarm.isActive = true;
-            this.update.emit(this.alarm);
+        if (this.alarmId) {
+            this.update.emit({hour: this._hour, minute: this._minute, days: this._days});
         } else {
-            const newAlarm = new Alarm();
-            newAlarm.hour = this._hour;
-            newAlarm.minute = this._minute;
-            newAlarm.days = this._days;
-            newAlarm.isActive = true;
-            this.save.emit(newAlarm);
+            this.save.emit({hour: this._hour, minute: this._minute, days: this._days});
         }
+        event.preventDefault();
+    }
+
+    handleDeleteBtnClick( event: any ) {
+        this.delete.emit(this.alarmId);
         event.preventDefault();
     }
 }

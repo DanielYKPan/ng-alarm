@@ -78,5 +78,6 @@
 
 <div class="alarm-box-column alarm-box-column-switch">
     <owl-switch [ngModel]="alarm.isActive"
-                (ngModelChange)="handleStatusChange($event)" ></owl-switch>
+                (click) = "handleClickOnSwitch($event)"
+                (ngModelChange)="handleStatusChange($event)"></owl-switch>
 </div>

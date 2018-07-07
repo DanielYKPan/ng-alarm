@@ -89,18 +89,26 @@
   }
 }
 
+.btn-block {
+  display: flex;
+  justify-content: space-around;
+}
+
+.settings-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+  height: 2rem;
+  border-radius: 30px;
+  transition: all 0.3s linear;
+  outline: none;
+  cursor: pointer;
+}
+
 .saving-btn {
   color: #fff;
   background-color: #4c6ea5;
-  bottom: 30px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 30px;
-  padding: 10px 60px;
-  cursor: pointer;
-  transition: all 0.3s linear;
-  outline: none;
   border: 1px #46578c solid;
 
   &:hover {
@@ -108,6 +116,18 @@
     background-color: #FFFFFF;
   }
 }
+
+.delete-btn {
+  color: #fff;
+  background-color: #ca181c;
+  border: 1px #aa171b solid;
+
+  &:hover {
+    color: #ca181c;
+    background-color: #FFFFFF;
+  }
+}
+
 
 .settings-checkbox {
   display: flex;

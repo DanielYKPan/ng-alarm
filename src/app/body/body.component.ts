@@ -22,6 +22,8 @@ export class BodyComponent implements OnInit {
 
     @Output() isConfigSettingsChange = new EventEmitter<boolean>();
 
+    public alarmOnConfig: Alarm | null = null;
+
     /*public alarms: Alarm[] = [
         {
             id: '0',
@@ -69,14 +71,42 @@ export class BodyComponent implements OnInit {
     ngOnInit() {
     }
 
-    handleAlarmSettingsSave( newAlarm: Alarm ): void {
-        this.store.dispatch(new fromAlarmActions.AddAlarm(newAlarm));
+    handleAlarmSave( settings: { hour: number, minute: number, days: number[] } ): void {
+        const alarm = new Alarm();
+        alarm.hour = settings.hour;
+        alarm.minute = settings.minute;
+        alarm.days = settings.days;
+        alarm.isActive = true;
+        this.store.dispatch(new fromAlarmActions.AddAlarm(alarm));
         this.isConfigSettings = false;
         this.isConfigSettingsChange.emit(false);
     }
 
-    handleAlarmSettingsUpdate( alarm: Alarm ): void {
+    handleAlarmUpdate( settings: { hour: number, minute: number, days: number[] } ) {
+        if (!this.alarmOnConfig) {
+            return;
+        }
+
+        this.alarmOnConfig.hour = settings.hour;
+        this.alarmOnConfig.minute = settings.minute;
+        this.alarmOnConfig.days = settings.days;
+        this.alarmOnConfig.isActive = true;
+        this.store.dispatch(new fromAlarmActions.UpdateAlarm(this.alarmOnConfig));
+        this.alarmOnConfig = null;
         this.isConfigSettings = false;
         this.isConfigSettingsChange.emit(false);
+    }
+
+    handleAlarmDelete( id: string ) {
+        this.store.dispatch(new fromAlarmActions.DeleteAlarm(id));
+        this.alarmOnConfig = null;
+        this.isConfigSettings = false;
+        this.isConfigSettingsChange.emit(false);
+    }
+
+    handleAlarmClick( alarm: Alarm ): void {
+        this.alarmOnConfig = alarm;
+        this.isConfigSettings = true;
+        this.isConfigSettingsChange.emit(true);
     }
 }

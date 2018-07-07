@@ -1,7 +1,5 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Output } from '@angular/core';
 import { Alarm } from '../store/alarm-model';
-
-let nextUniqueId = 0;
 
 @Component({
     selector: 'app-alarm-box',
@@ -13,6 +11,8 @@ export class AlarmBoxComponent implements OnInit {
 
     @Input() alarm: Alarm;
 
+    @Output() changeStatus = new EventEmitter<any>();
+
     @HostBinding('class.app-alarm-box')
     get alarmBoxClass(): boolean {
         return true;
@@ -22,21 +22,17 @@ export class AlarmBoxComponent implements OnInit {
         return this.alarm.hour >= 6 && this.alarm.hour < 18;
     }
 
-    public id = ++nextUniqueId;
-
     constructor() {
     }
 
     ngOnInit() {
     }
 
-    public handleDaysChange( days: number[] ) {
-        console.log(days);
-        console.log(this.alarm.days);
+    handleStatusChange( isActive: boolean ) {
+        this.changeStatus.emit(isActive);
     }
 
-    handleStatusChange( isActive: boolean ) {
-        console.log(isActive);
-        console.log(this.alarm.isActive);
+    handleClickOnSwitch( event: any ) {
+        event.stopPropagation();
     }
 }

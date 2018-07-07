@@ -104,5 +104,8 @@
         </div>
     </div>
 
-    <button type="button" class="saving-btn" (click)="handleSavingBtnClick($event)">SAVE</button>
+    <div class="btn-block">
+        <button type="button" class="settings-btn saving-btn" (click)="handleSavingBtnClick($event)">Save</button>
+        <button *ngIf="alarmId" type="button" class="settings-btn delete-btn" (click)="handleDeleteBtnClick($event)">Delete</button>
+    </div>
 </div>

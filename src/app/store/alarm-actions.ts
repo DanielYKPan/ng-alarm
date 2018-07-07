@@ -8,6 +8,8 @@ import { Alarm } from './alarm-model';
 export enum AlarmActionTypes {
     Load = 'Add Alarms',
     AddAlarm = 'Add Alarm',
+    UpdateAlarm = 'Update Alarm',
+    DeleteAlarm = 'Delete Alarm',
 }
 
 /**
@@ -30,6 +32,28 @@ export class AddAlarm implements Action {
     }
 }
 
+/**
+ * Update an alarm settings
+ * */
+export class UpdateAlarm implements Action {
+    readonly type = AlarmActionTypes.UpdateAlarm;
+
+    constructor( public payload: Alarm ) {
+    }
+}
+
+/**
+ * Delete an alarm
+ * */
+export class DeleteAlarm implements Action {
+    readonly type = AlarmActionTypes.DeleteAlarm;
+
+    constructor( public payload: string ) {
+    }
+}
+
 export type AlarmActions =
     Load |
-    AddAlarm;
+    AddAlarm |
+    UpdateAlarm |
+    DeleteAlarm;

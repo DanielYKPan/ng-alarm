@@ -13,10 +13,29 @@ const initialState: State = {
 };
 
 export function reducer( state = initialState, action: AlarmActions ): State {
+    let updatedAlarms;
+
     switch (action.type) {
         case AlarmActionTypes.AddAlarm:
             return {
                 alarms: [action.payload, ...state.alarms]
+            };
+
+        case AlarmActionTypes.UpdateAlarm:
+            updatedAlarms = state.alarms.map(( alarm: Alarm ) => {
+                return alarm.id === action.payload.id ?
+                    action.payload : alarm;
+            });
+
+            return {
+                alarms: updatedAlarms
+            };
+
+        case AlarmActionTypes.DeleteAlarm:
+            updatedAlarms = state.alarms.filter(( alarm: Alarm ) => alarm.id !== action.payload);
+
+            return {
+                alarms: updatedAlarms
             };
 
         default:
