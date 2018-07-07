@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { DoubleDigitsPipe } from './double-digits/double-digits.pipe';
 import { AlarmListComponent } from './alarm-list/alarm-list.component';
 import { AlarmSettingsComponent } from './alarm-settings/alarm-settings.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store';
 
 @NgModule({
     declarations: [
@@ -28,6 +30,9 @@ import { AlarmSettingsComponent } from './alarm-settings/alarm-settings.componen
         BrowserModule,
         BrowserAnimationsModule,
         FormsModule,
+
+        // NG Store
+        StoreModule.forRoot(reducers),
 
         OwlSwitchModule,
         OwlCheckBoxModule,

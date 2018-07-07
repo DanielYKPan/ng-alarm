@@ -15,9 +15,11 @@ export class BodyComponent implements OnInit {
 
     @Input() isConfigSettings: boolean;
 
+    @Input() alarms: Alarm[];
+
     @Output() isConfigSettingsChange = new EventEmitter<boolean>();
 
-    public alarms: Alarm[] = [
+    /*public alarms: Alarm[] = [
         {
             id: '0',
             hour: 0,
@@ -46,7 +48,7 @@ export class BodyComponent implements OnInit {
             isActive: true,
             days: [0, 2, 4, 6]
         },
-    ];
+    ];*/
 
     @HostBinding('class.app-body')
     get bodyClass(): boolean {
