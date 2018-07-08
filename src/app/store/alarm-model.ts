@@ -23,6 +23,12 @@ export class Alarm {
     }
 }
 
+export interface ClockValue {
+    hour: number;
+    minute: number;
+    day: number;
+}
+
 function uuid() {
     let result = '';
 
