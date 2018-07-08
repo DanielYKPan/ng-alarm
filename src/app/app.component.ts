@@ -1,6 +1,6 @@
-import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { ClockService } from './clock.service';
-import { combineLatest, Observable } from 'rxjs';
+import { combineLatest, Observable, Subscription } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import * as fromRoot from './store';
 import * as fromAlarmActions from './store/alarm-actions';
@@ -13,7 +13,7 @@ import { distinctUntilChanged, map } from 'rxjs/operators';
     styleUrls: ['./app.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent implements OnInit, AfterContentInit {
+export class AppComponent implements OnInit, AfterContentInit, OnDestroy {
 
     public isConfigSettings = false;
 
@@ -22,6 +22,8 @@ export class AppComponent implements OnInit, AfterContentInit {
     public alarms$: Observable<Alarm[]>;
 
     private clockValue$: Observable<ClockValue>;
+
+    private checkAlarmSub = Subscription.EMPTY;
 
     get clock$(): Observable<Date> {
         return this.clockService.clock$;
@@ -55,13 +57,16 @@ export class AppComponent implements OnInit, AfterContentInit {
     }
 
     public ngAfterContentInit(): void {
-
-        combineLatest(this.alarms$, this.clockValue$).pipe(
+        this.checkAlarmSub = combineLatest(this.alarms$, this.clockValue$).pipe(
             map(( [alarms, clockValue] ) => this.checkAlarm(alarms, clockValue)),
         ).subscribe(( alarm ) => {
             this.isBellRinging = !!alarm;
             this.cdRef.markForCheck();
         });
+    }
+
+    public ngOnDestroy(): void {
+        this.checkAlarmSub.unsubscribe();
     }
 
     public handleAlarmBellConfirm(): void {
