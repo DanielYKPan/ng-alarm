@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, OnInit } from '@angular/core';
+import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ClockService } from './clock.service';
 import { combineLatest, Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
@@ -10,7 +10,8 @@ import { distinctUntilChanged, map } from 'rxjs/operators';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    styleUrls: ['./app.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit, AfterContentInit {
 
@@ -27,7 +28,8 @@ export class AppComponent implements OnInit, AfterContentInit {
     }
 
     constructor( private clockService: ClockService,
-                 private store: Store<fromRoot.State> ) {
+                 private store: Store<fromRoot.State>,
+                 private cdRef: ChangeDetectorRef ) {
         this.alarms$ = this.store.pipe(select(fromRoot.getAlarms));
     }
 
@@ -57,13 +59,15 @@ export class AppComponent implements OnInit, AfterContentInit {
         combineLatest(this.alarms$, this.clockValue$).pipe(
             map(( [alarms, clockValue] ) => this.checkAlarm(alarms, clockValue)),
         ).subscribe(( alarm ) => {
-            if (alarm) {
-                console.log(alarm);
-                this.isBellRinging = true;
-            } else {
-                this.isBellRinging = false;
-            }
+            this.isBellRinging = !!alarm;
+            this.cdRef.markForCheck();
         });
+    }
+
+    public handleAlarmBellConfirm(): void {
+        this.isBellRinging = false;
+        this.cdRef.markForCheck();
+        return;
     }
 
     private checkAlarm( alarms: Alarm[], clockValue: ClockValue ): Alarm | null {

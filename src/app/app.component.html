@@ -2,7 +2,7 @@
     <div class="app-container">
         <app-header class="app-header" [clock]="clock$ | async"></app-header>
         <ng-container *ngIf="isBellRinging;else bellBlock">
-            <app-alarm-bell></app-alarm-bell>
+            <app-alarm-bell class="app-alarm-bell-wrapper" (confirm)="handleAlarmBellConfirm()"></app-alarm-bell>
         </ng-container>
         <ng-template #bellBlock>
             <app-body class="app-body"
