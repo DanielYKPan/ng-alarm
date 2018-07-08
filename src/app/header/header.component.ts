@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-header',
@@ -9,11 +9,6 @@ import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit } from '
 export class HeaderComponent implements OnInit {
 
     @Input() clock: Date;
-
-    @HostBinding('class.app-header')
-    get headerClass(): boolean {
-        return true;
-    }
 
     constructor() {
     }

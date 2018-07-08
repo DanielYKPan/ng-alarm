@@ -55,11 +55,6 @@ export class BodyComponent implements OnInit {
         },
     ];*/
 
-    @HostBinding('class.app-body')
-    get bodyClass(): boolean {
-        return true;
-    }
-
     @HostBinding('@transformBody')
     get handleTransformBodyAnimations(): string {
         return this.isConfigSettings ? 'settings' : 'list';

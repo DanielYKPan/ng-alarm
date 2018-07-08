@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
     selector: 'app-footer',
@@ -11,11 +11,6 @@ export class FooterComponent implements OnInit {
     @Input() isConfigSettings: boolean;
 
     @Output() isConfigSettingsChange = new EventEmitter<boolean>();
-
-    @HostBinding('class.app-footer')
-    get footerClass(): boolean {
-        return true;
-    }
 
     constructor() {
     }

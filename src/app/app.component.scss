@@ -19,3 +19,28 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
+
+.app-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 100%;
+  position: relative;
+}
+
+.app-body {
+  display: block;
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  background: #FFF;
+}
+
+.app-footer {
+  display: block;
+  position: relative;
+  height: 3.8rem;
+  background: #FFF;
+  z-index: 1;
+}
