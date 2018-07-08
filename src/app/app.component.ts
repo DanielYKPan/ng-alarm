@@ -16,6 +16,8 @@ export class AppComponent implements OnInit, AfterContentInit {
 
     public isConfigSettings = false;
 
+    public isBellRinging = false;
+
     public alarms$: Observable<Alarm[]>;
 
     private clockValue$: Observable<ClockValue>;
@@ -57,6 +59,9 @@ export class AppComponent implements OnInit, AfterContentInit {
         ).subscribe(( alarm ) => {
             if (alarm) {
                 console.log(alarm);
+                this.isBellRinging = true;
+            } else {
+                this.isBellRinging = false;
             }
         });
     }

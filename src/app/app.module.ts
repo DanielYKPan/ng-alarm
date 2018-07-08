@@ -18,6 +18,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './store';
 import { schema } from './db';
 import { AlarmEffects } from './store/alarm-effects';
+import { AlarmBellComponent } from './alarm-bell/alarm-bell.component';
 
 @NgModule({
     declarations: [
@@ -29,6 +30,7 @@ import { AlarmEffects } from './store/alarm-effects';
         DoubleDigitsPipe,
         AlarmListComponent,
         AlarmSettingsComponent,
+        AlarmBellComponent,
     ],
     imports: [
         BrowserModule,
